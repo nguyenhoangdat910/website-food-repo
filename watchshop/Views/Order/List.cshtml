@@ -1,0 +1,29 @@
+﻿@model IEnumerable<Order>
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Danh sách đặt hàng</h2>
+
+    <table class="table table-hover">
+        <tr>
+            <th>Mã sản phẩm</th>
+            <th>Người nhận</th>
+            <th>Ngày đặt</th>
+            <th>Tổng tiền</th>
+            <th></th>
+        </tr>
+        @foreach (var o in Model)
+    {
+    <tr>
+        <td>@o.Id</td>
+        <td>@o.Receiver</td>
+        <td>@o.OrderDate</td>
+        <td>@o.Amount</td>
+        <td>
+            <a href="/Order/Detail/@o.Id">Detail</a>
+        </td>
+    </tr>
+    }
+    </table>

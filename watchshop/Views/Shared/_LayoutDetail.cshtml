@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Thức ăn nhanh online</title>
+    <link href="~/content/img/logo.png" rel="shortcut icon" type="image/x-icon">
+    <!--jquery first, bootstrap later-->
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+
+<body>
+    <div class="container">
+        <header class="nn-header">
+            <div class="col-sm-3 col-md-3 nn-text-align-center">
+                <a href="/"><img src="~/Content/img/logo.gif" class="img-responsive" width="150" /></a>
+            </div><!--end logo-->
+            <div class="col-md-6 col-sm-6 ">
+                @Html.Partial("_Search")
+            </div><!--end search box-->
+            <div class="nn-cart-box col-sm-3 col-md-3 ">
+                <div class="nn-top-cart-wrapper ">
+                    <div class="nn-top-cart-contain">
+                        @Html.Partial("_CartInfo")
+                    </div>
+                </div>
+            </div><!--end cart box-->
+        </header>
+
+        @Html.Partial("_Menu")<!--end navigation-->
+        
+        
+            @RenderBody()
+        
+        <div class="ma-footer-static">
+            <div class="container">
+                <div class="footer-static">
+                    <div class="row">
+                        <div class="f-col f-col-3 col-sm-6 col-md-4 col-sms-6 col-smb-12">
+                            <div class="img-logo"><a href="#"><img src="http://www.plazathemes.com/demo/ma_enzo/media/wysiwyg/logo.jpg" alt=""></a></div>
+                            <div class="footer-static-content ">
+                                <h3>Đây là trang web của hàng thức ăn online!</h3>
+                                <p>Rất hân hạnh được phục vụ quý ông, quý bà.</p>
+                                <p>Địa chỉ: 135 Thanh Đa, Bình Quới, Phường 27, Q. Bình Thạnh, Tp.HCM</p>
+                            </div>
+                        </div>
+                        <div class="f-col f-col-4 col-sm-6 col-md-2 col-sms-6 col-smb-12">
+                            <div class="footer-static-title">
+                                <h3>THẮC MẮC</h3>
+                            </div>
+                            <div class="footer-static-content">
+                                <ul>
+                                    <li class="first"><a href="#">Liên hệ</a></li>
+                                    <li><a href="#">Lịch sử mua hàng</a></li>
+                                    <li><a href="#">Quay lại</a></li>
+                                    <li><a href="#">Dịch vụ khách hàng</a></li>
+                                    <li class="last"><a href="#">Điều kiện và Điều khoản &amp; Condition</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="f-col f-col-5 col-sm-6 col-md-2 col-sms-6 col-smb-12">
+                            <div class="footer-static-title">
+                                <h3>DV HỔ TRỢ</h3>
+                            </div>
+                            <div class="footer-static-content ">
+                                <ul>
+                                    <li class="first"><a href="#">Bản đồ</a></li>
+                                    <li><a href="#">Chính sách bảo mật</a></li>
+                                    <li><a href="#">Tài khoản</a></li>
+                                    <li><a href="#">Tìm kiếm nâng cao</a></li>
+                                    <li class="last"><a href="#">Giới thiệu</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="f-col f-col-6 col-sm-6 col-md-2 col-sms-6 col-smb-12">
+                            <div class="footer-static-title">
+                                <h3>TÀI KHOẢN</h3>
+                            </div>
+                            <div class="footer-static-content">
+                                <ul>
+                                    <li class="first"><a href="#">Tài khoản của bạn</a></li>
+                                    <li><a href="#">Lịch sử mua hàng</a></li>
+                                    <li><a href="#">Quay lại</a></li>
+                                    <li><a href="#">Đặc biệt</a></li>
+                                    <li class="last"><a href="#">Bản đồ</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="f-col f-col-7 col-sm-6 col-md-2 col-sms-6 col-smb-12">
+                            <div class="footer-static-title">
+                                <h3>LIÊN HỆ</h3>
+                            </div>
+                            <div class="footer-static-content">
+                                <ul>
+                                    <li class="first"><a href="#">Liên hệ</a></li>
+                                    <li><a href="#">Thông tin giao hàng</a></li>
+                                    <li><a href="#">Chính sách bảo mật</a></li>
+                                    <li><a href="#">Dịch vụ khách hàng</a></li>
+                                    <li class="last"><a href="#">Điều kiện &amp; Điều khoản</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+<script>
+                $(function () {
+                    $("#search").autocomplete({
+                        source: "/Home/Search",//controller/action
+                        minLegth: 2
+                    });
+                })
+</script>   

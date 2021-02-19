@@ -1,0 +1,120 @@
+﻿@model IEnumerable<Category>
+
+
+    <!--block index(nội dung chính )-->
+    @Html.Partial("_Banner")<!--end home banner-->
+    @foreach (var c in Model)
+    {
+        var items = c.Products
+      .OrderBy(p => Guid.NewGuid())
+      .ToList()
+      .Take(4);
+        <div class="nn-block-margin-top30px">
+            <!--block nội dung chính-->
+            <div class="nn-cat-title">
+                <p>
+                    <i class="glyphicon glyphicon-tag"></i>
+                    <h2>@c.Name</h2>
+                </p>
+            </div>
+            <div>
+                @foreach (var pro in items)
+                {
+                    <div class="col-md-3">
+                        <div class="nn-product-box">
+                            <a href="/Product/Detail?id=@pro.Id">
+                                <img class="img-responsive product-image" src="/Content/img/products/@pro.Image"/>
+                                <span class="status">Giảm giá: @pro.Discount.ToString("#,#0%")</span>
+                                <div class="overlay"></div>
+                            </a>
+                            <div class="nn-product-box-descriptions">
+                                <h3 class="nn-product-box-name" style="height:55px">
+                                    <a href="/Product/Detail?id=@pro.Id" title="Tên Sản Phẩm">@pro.Name</a>
+                                </h3>
+                                <div class="d-flex">
+                                    <div class="d-flex">
+                                        <div class="pricing">
+                                            <p class="price" style="height:40px">
+                                                @if ( pro.Discount == 0){
+                                                <span class="c" style="color:#ff0000">@pro.UnitPrice.ToString("#,##0VNĐ")</span><br />
+                                                }
+                                                else
+                                                {
+                                                <span class="c" style="text-decoration-line: line-through; color:#ff0000">@pro.UnitPrice.ToString("#,##0VND")</span><br />
+                                                }
+                                                <span class="price-sale" style="color:#1d9e28" id="@pro.Discount"> @Html.FormatValue(pro.UnitPrice * (1 - pro.Discount), "{0:0,0}VND")</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="nn-product-box-actions">
+                                    <button type="button" title="Add to Cart" class="btn btn-danger add-to-cart" data-id="@pro.Id">
+                                        <span>Thêm vào giỏ hàng</span>
+                                    </button>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+                <div><a class="pull-right alert-link" href="/Product/IconCategory?CateID=@c.Id"><h6>View More...</h6></a></div>
+                
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    }
+
+@section scripts{
+    <script>
+        $(function () {
+            $(".add-to-cart").click(function () {
+                pid = $(this).attr("data-id");
+                $.ajax({
+                    url: "/Cart/Add",
+                    data: { id: pid },
+                    success: function (response) {
+                       
+                        $("#nn-cart-count").html(response.Count);
+                        $("#nn-cart-total").html(response.Total);
+                    }
+                });
+            });
+        });
+        $('.add-to-cart').click(function () {
+
+            var cart = $('.nn-top-cart-title');
+
+            var imgtofly = $(this).parents('div.nn-product-box').find('img').eq(0);
+
+            if (imgtofly) {
+
+                var imgclone = imgtofly.clone()
+
+                    .offset({ top: imgtofly.offset().top, left: imgtofly.offset().left })
+
+                    .css({ 'opacity': '0.7', 'position': 'absolute', 'height': '150px', 'width': '150px', 'z-index': '1000' })
+
+                    .appendTo($('body'))
+
+                    .animate({
+
+                        'top': cart.offset().top + 10,
+
+                        'left': cart.offset().left + 30,
+
+                        'width': 55,
+
+                        'height': 55
+
+                    }, 1000, 'easeInElastic');
+
+                imgclone.animate({ 'width': 0, 'height': 0 }, function () { $(this).detach() });
+
+            }
+
+            return false;
+
+        });
+    </script>
+}
+ 

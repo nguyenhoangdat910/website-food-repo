@@ -1,0 +1,81 @@
+﻿@model Order
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <h2>Thông tin đặt hàng</h2>
+
+    <div class="form-horizontal">
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Tên khách hàng</label>
+            <div class="col-md-10">
+                @Model.Customer.Fullname
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Ngày đặt</label>
+            <div class="col-md-10">
+                @Html.FormatValue(Model.OrderDate, "{0:yyyy-MM-dd}")
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Ngyaf yêu cầu</label>
+            <div class="col-md-10">
+                @Html.FormatValue(Model.RequireDate, "{0:yyyy-MM-dd}")
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Người nhận</label>
+            <div class="col-md-10">
+                @Model.Receiver
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Địa chỉ Email</label>
+            <div class="col-md-10">
+                @Model.Address
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Tổng Tiền</label>
+            <div class="col-md-10">
+                @Html.FormatValue(Model.Amount, "{0:c}"))
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Ghi chú</label>
+            <div class="col-md-10">
+                @Model.Description
+            </div>
+        </div>
+    </div>
+    <table class="table table-hover">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Unit Price</th>
+            <th>Discount</th>
+            <th>Quantity</th>
+            <th>Amount</th>
+        </tr>
+        @foreach (var d in Model.OrderDetails)
+    {
+    <tr>
+        <td>@d.ProductId</td>
+        <td>@d.Product.Name</td>
+        <td>@d.UnitPrice</td>
+        <td>@d.Discount</td>
+        <td>@d.Quantity</td>
+        <td>@(d.UnitPrice * d.Quantity * (1 - d.Discount))</td>
+    </tr>
+    }
+    </table>
+ 

@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Product>
+
+<div class="nn-block">
+    <!--block Best seller (hàng bán chạy)-->
+    <div class="nn-megamenu-sidebar-title"><i class="glyphicon glyphicon-tags"></i><h2>Bán Chạy</h2></div>
+    <div class="nn-block-product">
+        <ul>
+            @foreach (var item in Model)
+            {
+                <li>
+                    <div class="nn-block-product-sidebar">
+                        <div class="nn-block-product-sidebar-img col-md-5">
+                            <a href="/Product/Detail?id=@item.Id">
+                                <img class="img-responsive" src="/Content/img/products/@item.Image" width="200" height="200"/>
+                                <span class="status">Giảm giá: @item.Discount.ToString("#,#0%")</span>
+                                <div class="overlay"></div>
+                            </a>
+                        </div>
+                        <div class="nn-block-product-sidebar-details col-md-7">
+                            <h3 class="nn-product-box-name">
+                                <a href="/Product/Detail?id=@item.Id" title="Đồng hồ hiệu">@item.Name</a>
+                            </h3>
+                            <div class="d-flex">
+                                <div class="d-flex">
+                                    <div class="pricing">
+                                        <p class="price" style="height:40px">
+                                            @if (item.Discount == 0)
+                                            {
+                                                <span class="c" style="color:#ff0000">@item.UnitPrice.ToString("#,##0VNĐ")</span><br />
+                                            }
+                                            else
+                                            {
+                                                <span class="c" style="text-decoration-line: line-through; color:#ff0000">@item.UnitPrice.ToString("#,##0VND")</span><br />
+                                            }
+                                            <span class="price-sale" style="color:#1d9e28" id="@item.Discount"> @Html.FormatValue(item.UnitPrice * (1 - item.Discount), "{0:0,0}VND")</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </li>
+
+            }
+        </ul>
+    </div>
+</div><!--end block best seller-->
+

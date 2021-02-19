@@ -1,0 +1,123 @@
+﻿@model IEnumerable<Product>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="table-responsive">
+                <table class="table table-bordered">
+
+                    <tr>
+                        <th>Mã</th>
+                        <th>Tên Sản Phẩm</th>
+                        <th>Hình Ảnh</th>
+                        <th>Giá</th>
+                        <th>Giảm Giá</th>
+                        <th>Số Lượng</th>
+                        <th>Số Tiền</th>
+                        <th></th>
+                    </tr>
+                    @foreach (var c in Model)
+                {
+                <tr>
+                    <td>@c.Id</td>
+                    <td>@c.Name</td>
+                    <td><img class="img-fluid" height="100" width="100" src="/Content/img/products/@c.Image" /></td>
+                    <td>@Html.FormatValue(c.UnitPrice, "{0:0,0}VNĐ")</td>
+                    <td>@Html.FormatValue(c.Discount, "{0:0%}")</td>
+                    <td><input class="quantity" value="@c.Quantity" data-id="@c.Id" size="3"></td>
+                    <td id="@c.Id">@Html.FormatValue(c.UnitPrice * c.Quantity * (1 - c.Discount), "{0:0,0}VNĐ")</td>
+                    <td>
+                        <img class="remove-from-cart" data-id="@c.Id" src="~/Content/img/icons/icontrash.png" width="25" height="25" />
+                    </td>
+
+                </tr>
+
+
+
+                }
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td class="text-right">Tổng thành tiền: </td>
+                        <td><span id="totalprice">@ShoppingCart.Cart.Total</span> </td>
+                        <td>
+                            <a href="/Order/Checkout" class="btn btn-success">
+                                <span class="glyphicon glyphicon-th-list"></span>
+                                Thanh Toán
+                            </a>
+                        </td>
+                    </tr>
+
+
+                </table>
+            </div>
+
+        </div>
+    </div>
+   
+
+    @section scripts{
+        <script>
+            $(function () {
+
+                // Xóa khỏi giỏ
+                $(".remove-from-cart").click(function () {
+                    pid = $(this).attr("data-id");
+                    tr = $(this).parents("tr");// tim <tr> chua <img> bi click
+                    $.ajax({
+                        url: "/Cart/Remove",
+                        data: { id: pid },
+                        success: function (response) {
+
+                            $("#nn-cart-count").html(response.Count);
+                            $("#nn-cart-total").html(response.Total);
+                            $('#totalprice').html(response.Total);
+                            tr.hide(500);
+                        }
+                    });
+                });
+                // Cập nhật số lượng
+                $(".quantity").on('change', function () {
+                    pid = $(this).attr("data-id");
+                    qty = $(this).val();
+                    $.ajax({
+                        url: "/Cart/Update",
+                        data: { id: pid, quantity: qty },
+                        success: function (response) {
+                            debugger;
+                            console.log(response);
+                            $("#nn-cart-count").load(response.Count);
+                            $("#nn-cart-total").html(response.Total);
+                            $('#totalprice').html(response.Total);
+                            $("#" + pid).html(response.Amount);
+                        }
+                    });
+                });
+            });
+
+            $(function () {
+                $(".add-to-cart").click(function () {
+                    pid = $(this).attr("data-id");
+                    $.ajax({
+                        url: "/Cart/Add",
+                        data: { id: pid },
+                        success: function (response) {
+                            alert("Đã thêm vào giỏ");
+                            $("#nn-cart-count").html(response.Count);
+                            $("#nn-cart-total").html(response.Total);
+                            $('#totalprice').html(response.Total);
+                        }
+                    });
+                });
+            });
+        </script>
+
+
+    }
+

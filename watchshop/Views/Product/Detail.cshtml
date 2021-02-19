@@ -1,0 +1,432 @@
+﻿@model Product
+@{
+    ViewBag.Title = "IconCategory";
+    Layout = "~/Views/Shared/_LayoutDetail.cshtml";
+}
+
+<div class="row">
+    <div class="nn-product-view">
+        <div class="nn-product-essential col-md-9 col-sm-9 col-lg-9 col-xs-12">
+            <div class="row nn-margin-bottom nn-product-box">
+                <div class="nn-product-image-box col-sm-6">
+                    <div class="nn-product-box">
+                        <img class="img-responsive" src="/Content/img/products/@Model.Image" />
+
+                    </div>
+
+
+                </div>
+
+                <div class="nn-product-shop col-sm-6">
+
+                    <div class="product-name">
+                        <h1>@Model.Name</h1>
+                    </div>
+                    <span class="sku_wrapper">
+                        <span class="item-title">Mã sản phẩm:</span>
+                        <span>
+                            <strong>
+                                @Model.Name - @Model.Id
+                            </strong>
+                        </span>
+                    </span>
+                    <span><br /></span>
+                    <span class="category-url-wrapper">
+                        <span class="item-title">Loại sản phẩm: </span>
+                        <a href="/Product/Category?CategoryID=@Model.CategoryId">@Model.Category.Name </a>
+                    </span>
+                   
+
+                    <div class="short-description">
+                        <div class="std">
+                            <h5>
+
+                                <strong></strong>
+
+                            </h5><br>
+
+                        </div>
+                    </div>
+
+                    <p class="availability in-stock">
+                        <span class="item-title">
+                            <i>Tình Trạng: </i>
+                        </span>
+                        <span>
+                            <strong>
+                                @Model.Quantity
+                            </strong>
+                        </span>
+                       
+                    </p>
+
+                    <div class="price-box">
+                        <span> Giá tiền:</span>
+                        <h3 style="color:#ff0000" >@Model.UnitPrice.ToString("#,##0VNĐ")</h3>
+
+
+                    </div>
+                    <div class="Discount-box" >
+                        <i>Giảm giá: </i>
+
+                        <h3 style="color:#00ff21">@Model.Discount.ToString("#,#0%")</h3>
+
+
+                    </div>
+                    <div class="add-to-box">
+                        <button type="button" title="Add to Cart" class="btn btn-danger add-to-cart" data-id="@Model.Id">
+                            <span>Thêm vào giỏ</span>
+                        </button>
+
+
+                    </div>
+
+
+                </div>
+            </div>
+            <div>
+
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" role="tablist">
+                    <li>
+                        <a href="#descriptions" role="tab" data-toggle="tab">
+                            Mô tả
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#specifications" role="tab" data-toggle="tab">
+                            Chi tiết
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#comments" role="tab" data-toggle="tab">
+                            <i class="fa fa-envelope"></i> Bình luận
+                        </a>
+                    </li>
+
+                </ul>
+
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div class="tab-pane fade active in active" id="descriptions" >
+                        <h2>Mô tả</h2>
+                        <div>
+                            @Model.Description
+                        </div>
+                    </div>
+                    <div class="tab-pane fade row" id="specifications">
+
+
+                        <h2>Chi tiết sản phẩm</h2>
+
+
+                        <div class="col-md-6">
+                            <table class="table table-hover table-striped">
+                                <tr>
+                                    <td>
+                                        Mã sản phẩm :
+                                    </td>
+                                    <td>
+                                        @Model.Name - @Model.Id
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Tên
+                                    </td>
+                                    <td>
+                                        @Model.Name
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Tình trạng
+                                    </td>
+                                    <td>
+                                        @Model.Available
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Loại
+                                    </td>
+                                    <td>
+                                        @Model.Category.Name
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Giảm giá
+                                    </td>
+                                    <td>
+                                        @Model.Discount.ToString("#,#0%")
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Ngày nhập hàng
+                                    </td>
+                                    <td>
+                                        @Model.ProductDate
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Nhà sản xuất
+                                    </td>
+                                    <td>
+                                        @Model.Supplier.Name
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Đơn vị 
+                                    </td>
+                                    <td>
+                                        @Model.UnitBrief
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Lượt xem
+                                    </td>
+                                    <td>
+                                        @Model.Views
+                                    </td>
+                                </tr>
+
+
+                            </table>
+                        </div>
+                        <div class="col-md-6"></div>
+
+
+                    </div>
+                    <div class="tab-pane fade" id="comments">
+                        <p>Bạn hãy để lại ý kiến để đóng góp cho shop</p>
+                        <div class="fb-comments" data-href="/chi-tiet/" data-width="100%" data-numposts="5" data-colorscheme="light"></div>
+                    </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="nn-product-view-right col-md-3 col-sm-3 col-lg-3 col-xs-12">
+            <aside>
+                <h3>Sản Phẩm Cùng Loại</h3>
+                <div>
+                </div>
+            </aside>
+            <aside>
+                <h3>Ưu Chuộng</h3>
+                <div id="demo5" class="scroll-img">
+                    <ul>
+                        @foreach (var s in Model.Supplier.Products.OrderBy(p => Guid.NewGuid()).Skip(1).Take(10))
+                        {
+
+                            <li>
+                                <div class="row">
+
+                                    <div class="nn-product-box">
+                                        <a href="/Product/Detail?id=@s.Id">
+
+                                            <img class="img-responsive" title="@s.Name" src="/Content/img/products/@s.Image" alt="@Model.Name" />
+                                            <span class="status">Giảm giá: @s.Discount.ToString("#,#0%")</span>
+                                            <div class="overlay"></div>
+                                        </a>
+                                        <div class="nn-product-box-descriptions">
+                                            <h3 class="nn-product-box-name">
+                                                <a href="/chi-tiet/" title="@s.Name">@s.Name</a>
+                                            </h3>
+                                            <div class="d-flex">
+                                                <div class="d-flex">
+                                                    <div class="pricing">
+                                                        <p class="price" style="height:40px">
+                                                            @if (s.Discount == 0)
+                                                            {
+                                                                <span class="c" style="color:#ff0000">@s.UnitPrice.ToString("#,##0VNĐ")</span><br />
+                                                            }
+                                                            else
+                                                            {
+                                                                <span class="c" style="text-decoration-line: line-through; color:#ff0000">@s.UnitPrice.ToString("#,##0VNĐ")</span><br />
+                                                            }
+                                                            <span class="price-sale" style="color:#1d9e28" id="@s.Discount"> @Html.FormatValue(s.UnitPrice * (1 - s.Discount), "{0:0,0}VNĐ")</span>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="nn-product-box-actions">
+                                                <button type="button" title="Add to Cart" class="btn btn-danger add-to-cart" data-id="@s.Id">
+                                                    <span>Thêm vào giỏ</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div><!--end nn-product-box-->
+                                </div>
+                            </li>
+                        }
+                    </ul>
+                </div>
+                <div id="demo5-btn" class="text-center">
+                    <button class="btn" id="demo5-backward"><i class="icon-chevron-left"></i> Backward</button>
+                    <button class="btn" id="demo5-forward">Forward <i class="icon-chevron-right"></i></button>
+                </div>
+            </aside>
+
+        </div>
+    
+</div>
+<div class="container">
+    <fieldset class="nn-relate">
+        <legend>Một số sản phẩm khác</legend>
+        @foreach (var pro in Model.Supplier.Products.Skip(1).Take(8))
+            {
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="nn-product-box">
+                    <a href="/Product/Detail?id=@pro.Id">
+                        <img class="img-responsive" src="/Content/img/products/@pro.Image"/>
+                        <span class="status">Giảm giá: @pro.Discount.ToString("#,#0%")</span>
+                        <div class="overlay"></div>
+                    </a>
+                    <div class="nn-product-box-descriptions">
+                        <h3 class="nn-product-box-name" style="height:60px">
+                            <a href="/Product/Detail?id=@pro.Id" title="@pro.Name">@pro.Name</a>
+                        </h3>
+                        <div class="d-flex">
+                            <div class="d-flex">
+                                <div class="pricing">
+                                    <p class="price" style="height:40px">
+                                        @if (pro.Discount == 0)
+                                        {
+                                            <span class="c" style="color:#ff0000">@pro.UnitPrice.ToString("#,##0VNĐ")</span><br />
+                                        }
+                                        else
+                                        {
+                                            <span class="c" style="text-decoration-line: line-through; color:#ff0000">@pro.UnitPrice.ToString("#,##0VNĐ")</span><br />
+                                        }
+                                        <span class="price-sale" style="color:#1d9e28" id="@pro.Discount"> @Html.FormatValue(pro.UnitPrice * (1 - pro.Discount), "{0:0,0}VNĐ")</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="nn-product-box-actions">
+                            <button type="button" title="Add to Cart" class="btn btn-danger add-to-cart" data-id="@pro.Id">
+                                <span>Thêm vào giỏ</span>
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </fieldset>
+</div>
+
+<style>
+    /* Tab Navigation */
+    .nav-tabs {
+        margin: 0;
+        padding: 0;
+        border: 0;
+    }
+
+        .nav-tabs > li > a {
+            background: #DADADA;
+            border-radius: 0;
+            box-shadow: inset 0 -8px 7px -9px rgba(0,0,0,.4),-2px -2px 5px -2px rgba(0,0,0,.4);
+        }
+
+        .nav-tabs > li.active > a,
+        .nav-tabs > li.active > a:hover {
+            background: #fff;
+            box-shadow: inset 0 0 0 0 rgba(0,0,0,.4),-2px -3px 5px -2px rgba(0,0,0,.4);
+        }
+
+    /* Tab Content */
+    .tab-pane {
+        background: #fff;
+        box-shadow: 0 0 4px rgba(0,0,0,.4);
+        border-radius: 0;
+        padding: 10px;
+    }
+
+    /*  responsive facebook comment box*/
+    .fb_iframe_widget,
+    .fb_iframe_widget span,
+    .fb_iframe_widget span iframe[style] {
+        min-width: 100% !important;
+        width: 100% !important;
+    }
+
+
+    .scroll-img {
+        border-left: 1px solid #DADADA;
+        overflow: hidden;
+    }
+
+        .scroll-img ul {
+            height: 800px;
+            margin: 0;
+        }
+
+            .scroll-img ul li {
+                display: block;
+            }
+</style>
+
+@section scripts{
+    <script>
+        $(function () {
+            $(".add-to-cart").click(function () {
+                pid = $(this).attr("data-id");
+                $.ajax({
+                    url: "/Cart/Add",
+                    data: { id: pid },
+                    success: function (response) {
+                        $("#nn-cart-count").html(response.Count);
+                        $("#nn-cart-total").html(response.Total);
+                    }
+                });
+            });
+        });
+        $('.add-to-cart').click(function () {
+
+            var cart = $('.nn-top-cart-title');
+
+            var imgtofly = $(this).parents('div.nn-product-box').find('img').eq(0);
+
+            if (imgtofly) {
+
+                var imgclone = imgtofly.clone()
+
+                    .offset({ top: imgtofly.offset().top, left: imgtofly.offset().left })
+
+                    .css({ 'opacity': '0.7', 'position': 'absolute', 'height': '150px', 'width': '150px', 'z-index': '1000' })
+
+                    .appendTo($('body'))
+
+                    .animate({
+
+                        'top': cart.offset().top + 10,
+
+                        'left': cart.offset().left + 30,
+
+                        'width': 55,
+
+                        'height': 55
+
+                    }, 1000, 'easeInElastic');
+
+                imgclone.animate({ 'width': 0, 'height': 0 }, function () { $(this).detach() });
+
+            }
+
+            return false;
+
+        });
+</script>
+
+}
+

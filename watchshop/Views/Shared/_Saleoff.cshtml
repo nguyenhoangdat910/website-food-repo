@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Product>
+<div class="nn-block">
+    <div class="nn-megamenu-sidebar-title"><i class="glyphicon glyphicon-tags"></i><h2>Giảm giá</h2></div>
+
+    @foreach (var item in Model)
+    {
+        <div class="nn-product-box">
+            <a href="/Product/Detail?id=@item.Id">
+                <img class="img-responsive" src="/Content/img/products/@item.Image" />
+                <span class="status">Giảm giá: @item.Discount.ToString("#,#0%")</span>
+                <div class="overlay"></div>
+            </a>
+            <div class="nn-product-box-descriptions">
+                <h3 class="nn-product-box-name">
+                    <a href="/Product/Detail?id=@item.Id" title="Đồng hồ hiệu">@item.Name</a>
+                </h3>
+                <div class="d-flex">
+                    <div class="d-flex">
+                        <div class="pricing">
+                            <p class="price" style="height:40px">
+                                @if (item.Discount == 0)
+                                {
+                                    <span class="c" style="color:#ff0000">@item.UnitPrice.ToString("#,##0VNĐ")</span><br />
+                                }
+                                else
+                                {
+                                    <span class="c" style="text-decoration-line: line-through; color:#ff0000">@item.UnitPrice.ToString("#,##0VND")</span><br />
+                                }
+                                <span class="price-sale" style="color:#1d9e28" id="@item.Discount"> @Html.FormatValue(item.UnitPrice * (1 - item.Discount), "{0:0,0}VND")</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="nn-product-box-actions">
+                    <button type="button" title="Add to Cart" class="btn btn-danger add-to-cart" data-id="@item.Id">
+                        <span>Thêm vào giỏ hàng</span>
+                    </button>
+
+                </div>
+            </div>
+
+        </div>
+    }
+    
+</div><!--end block sale off-->
+
+@section scripts{
+    <script>
+        $(function () {
+            $(".add-to-cart").click(function () {
+                pid = $(this).attr("data-id");
+                $.ajax({
+                    url: "/Cart/Add",
+                    data: { id: pid },
+                    success: function (response) {
+                        alert("Đã thêm vào giỏ hàng thành công")
+                        $("#nn-cart-count").html(response.Count);
+                        $("#nn-cart-total").html(response.Total);
+                    }
+                });
+            });
+        });
+    </script>
+
+}

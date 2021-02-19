@@ -1,0 +1,664 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+ <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cửa hàng đồng hồ online</title>
+    <link href="Contents/img/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <!--jquery first, bootstrap later-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script type="text/javascript" src="Contents/js/bootstrap.js"></script>
+    
+    <link href="Contents/css/bootstrap.min.css" rel="stylesheet">
+    <link href="Contents/css/nn-style.css" rel="stylesheet">
+</head>
+
+<body>
+<div class="container">
+	<header class="nn-header">
+    	<div class="col-sm-3 col-md-3 nn-text-align-center">
+        	<img src="Contents/img/logo.jpg" class="img-responsive" />
+        </div><!--end logo-->
+        <div class="col-md-6 col-sm-6 ">
+        	<form class="navbar-form navbar-left" role="search">
+                <div class="input-group input-group-lg">
+                    <input type="text" class="form-control" placeholder="Tìm kiếm" />
+                    <span class="input-group-btn">
+                        <button class="btn btn-warning" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+                    </span>
+                </div>
+            </form>
+        </div><!--end search box-->
+         <div class="nn-cart-box col-sm-3 col-md-3 ">
+            <div class="nn-top-cart-wrapper ">
+                <div class="nn-top-cart-contain">
+                    <div class="nn-block-cart">
+                        <div class="nn-top-cart-title">
+                        	<span class="glyphicon glyphicon-shopping-cart"></span>
+                            <a href="#">
+                            0 sản phẩm<span><i class="caret"></i></span>
+                            <br /><span class="price"><strong>VNĐ 0.00</strong></span></a>
+                        </div>
+                        <div class="nn-top-cart-content" style="overflow: hidden; display: none;">
+                             <p class="empty">Không có sản phẩm nào trong giỏ hàng.</p>
+                             <div class="top-subtotal">Tổng cộng: <span class="price">VNĐ 0.00</span></div>
+                        </div>                 
+                     
+                    </div>
+                </div>
+            </div>
+        </div><!--end cart box-->
+    </header>
+    
+    <div class="navbar navbar-default">
+                    <div class="navbar-header">
+                        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".js-navbar-collapse" >
+                           <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-home "></span></a>
+                    </div>
+
+
+                    <div class="navbar-collapse collapse js-navbar-collapse">
+                        <ul class="nav navbar-nav">
+
+                            <li><a href="#">Giới thiệu</a></li>
+                            <li><a href="#">Liên hệ</a></li>
+                             <li class="dropdown mega-dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Quý bà<span class="glyphicon glyphicon-chevron-down pull-right"></span></a>
+
+                                <ul class="dropdown-menu mega-dropdown-menu row">
+                                    <li class="col-sm-3">
+                                        <ul>
+                                            <li class="dropdown-header">Hàng mới về</li>
+                                            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                                                <div class="carousel-inner">
+                                                    <div class="item active">
+                                                        <a href="#"><img src="http://placehold.it/254x150/3498db/f5f5f5/&text=New+Collection" class="img-responsive" alt="product 1"></a>
+                                                        <h4><small>Bộ sưu tập mùa đông</small></h4>
+                                                        <button class="btn btn-primary" type="button">VNĐ 4.990.000</button> <button href="#" class="btn btn-default" type="button"><span class="glyphicon glyphicon-heart"></span> Thêm vào danh sách yêu thích</button>
+                                                    </div><!-- End Item -->
+                                                    <div class="item">
+                                                        <a href="#"><img src="http://placehold.it/254x150/ef5e55/f5f5f5/&text=New+Collection" class="img-responsive" alt="product 2"></a>
+                                                        <h4><small>Đồng hồ mạ vàng</small></h4>
+                                                        <button class="btn btn-primary" type="button">VNĐ 6.549.000</button> <button href="#" class="btn btn-default" type="button"><span class="glyphicon glyphicon-heart"></span> Thêm vào danh sách yêu thích</button>
+                                                    </div><!-- End Item -->
+                                                    <div class="item">
+                                                        <a href="#"><img src="http://placehold.it/254x150/2ecc71/f5f5f5/&text=New+Collection" class="img-responsive" alt="product 3"></a>
+                                                        <h4><small>Đồng hồ doanh nhân</small></h4>
+                                                        <button class="btn btn-primary" type="button">VNĐ 5.235.000</button> <button href="#" class="btn btn-default" type="button"><span class="glyphicon glyphicon-heart"></span> Thêm vào danh sách yêu thích</button>
+                                                    </div><!-- End Item -->
+                                                </div><!-- End Carousel Inner -->
+                                            </div><!-- /.carousel -->
+                                            <li class="divider"></li>
+                                            <li><a href="#">Xem tất cả bộ sưu tập <span class="glyphicon glyphicon-chevron-right pull-right"></span></a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="col-sm-3">
+                                        <ul>
+                                            <li class="dropdown-header">Tissot </li>
+                                            <li><a href="#">Tissot 1</a></li>
+                                            <li><a href="#">Tissot 2</a></li>
+                                            <li><a href="#">Tissot 3</a></li>
+                                            <li><a href="#">Tissot 4</a></li>
+                                            <li><a href="#">Tissot 5</a></li>
+                                            <li class="divider"></li>
+                                            <li class="dropdown-header">Longines</li>
+                                            <li><a href="#">Longines 1</a></li>
+                                            <li><a href="#">Longines 2</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="col-sm-3">
+                                        <ul>
+                                            <li class="dropdown-header">Calvin Klein</li>
+                                            <li><a href="#">Calvin Klein 1</a></li>
+                                            <li><a href="#">Calvin Klein 2</a></li>
+                                            <li><a href="#">Calvin Klein 3</a></li>
+                                            <li class="divider"></li>
+                                            <li class="dropdown-header">Candino</li>
+                                            <li><a href="#">Candino 1</a></li>
+                                            <li><a href="#">Candino 2</a></li>
+                                            <li><a href="#">Candino 3</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="col-sm-3">
+                                        <ul>
+                                            <li class="dropdown-header">Anne Klein</li>
+                                            <li><a href="#">Anne Klein 1</a></li>
+                                            <li><a href="#">Anne Klein 2</a></li>
+                                            <li><a href="#">Anne Klein 3</a></li>
+                                            <li class="divider"></li>
+                                            <li class="dropdown-header">Liên hệ Email:</li>
+                                            <form class="form" role="form">
+                                                <div class="form-group">
+                                                    <label class="sr-only" for="email">Email address</label>
+                                                    <input type="email" class="form-control" id="email" placeholder="Enter email">
+                                                </div>
+                                                <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+                                            </form>
+                                        </ul>
+                                    </li>
+                                </ul>
+
+                            </li>
+                            <li class="dropdown mega-dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Quý ông<span class="glyphicon glyphicon-chevron-down pull-right"></span></a>
+
+                                <ul class="dropdown-menu mega-dropdown-menu row">
+                                    <li class="col-sm-3">
+                                        <ul>
+                                            <li class="dropdown-header">Hàng mới về</li>
+                                            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                                                <div class="carousel-inner">
+                                                    <div class="item active">
+                                                        <a href="#"><img src="http://placehold.it/254x150/3498db/f5f5f5/&text=New+Collection" class="img-responsive" alt="product 1"></a>
+                                                        <h4><small>Bộ sưu tập thu đông</small></h4>
+                                                        <button class="btn btn-primary" type="button">4.980.000 VNĐ</button> <button href="#" class="btn btn-default" type="button"><span class="glyphicon glyphicon-heart"></span> Add to Wishlist</button>
+                                                    </div><!-- End Item -->
+                                                    <div class="item">
+                                                        <a href="#"><img src="http://placehold.it/254x150/ef5e55/f5f5f5/&text=New+Collection" class="img-responsive" alt="product 2"></a>
+                                                        <h4><small>Đồn hồ mạ vàng</small></h4>
+                                                        <button class="btn btn-primary" type="button">8.950.000 VNĐ</button> <button href="#" class="btn btn-default" type="button"><span class="glyphicon glyphicon-heart"></span> Add to Wishlist</button>
+                                                    </div><!-- End Item -->
+                                                    <div class="item">
+                                                        <a href="#"><img src="http://placehold.it/254x150/2ecc71/f5f5f5/&text=New+Collection" class="img-responsive" alt="product 3"></a>
+                                                        <h4><small>Đồng hồ bán chạy</small></h4>
+                                                        <button class="btn btn-primary" type="button">6.999.000 VNĐ</button> <button href="#" class="btn btn-default" type="button"><span class="glyphicon glyphicon-heart"></span> Add to Wishlist</button>
+                                                    </div><!-- End Item -->
+                                                </div><!-- End Carousel Inner -->
+                                            </div><!-- /.carousel -->
+                                            <li class="divider"></li>
+                                            <li><a href="#">Xem tất cả các sản phẩm <span class="glyphicon glyphicon-chevron-right pull-right"></span></a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="col-sm-3">
+                                        <ul>
+                                            <li class="dropdown-header">Aolix AL</li>
+                                            <li><a href="#">Aolix AL 1</a></li>
+                                            <li><a href="#">Aolix AL 2</a></li>
+                                            <li><a href="#">Aolix AL 3</a></li>
+                                            <li><a href="#">Aolix AL 4</a></li>
+                                            <li><a href="#">Aolix AL 5</a></li>
+                                            <li class="divider"></li>
+                                            <li class="dropdown-header">Tops</li>
+                                            <li><a href="#">Casio</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="col-sm-3">
+                                        <ul>
+                                            <li class="dropdown-header">Calvin Klein (CK)</li>
+                                            <li><a href="#">Calvin Klein 1</a></li>
+                                            <li><a href="#">Calvin Klein 2</a></li>
+                                            <li><a href="#">Calvin Klein 3</a></li>
+                                            <li class="divider"></li>
+                                            <li class="dropdown-header">Longines</li>
+                                            <li><a href="#">Longines 1</a></li>
+                                            <li><a href="#">Longines 2</a></li>
+                                            <li><a href="#">Longines 3</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="col-sm-3">
+                                        <ul>
+                                            <li class="dropdown-header">Mavado</li>
+                                            <li><a href="#">Mavado 1</a></li>
+                                            <li><a href="#">Mavado 2</a></li>
+                                            <li><a href="#">Mavado 3</a></li>
+                                            <li class="divider"></li>
+                                            <li class="dropdown-header">Liên hệ Email</li>
+                                            <form class="form" role="form">
+                                                <div class="form-group">
+                                                    <label class="sr-only" for="email">Email address</label>
+                                                    <input type="email" class="form-control" id="email" placeholder="Enter email">
+                                                </div>
+                                                <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+                                            </form>
+                                        </ul>
+                                    </li>
+                                </ul>
+
+                            </li>
+                            
+                            
+                           
+                           
+                            <li class="dropdown">
+                       			 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                           Tài khoản <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    @if (!Request.IsAuthenticated) { 
+                                        <li><a href="/Account/Login">Đăng nhập</a></li>
+                                        <li><a href="/Account/Forgot">Quên mật khẩu</a></li>
+                                        <li><a href="/Account/Register">Đăng ký thành viên</a></li>
+                                    }
+                                    else { 
+                                        <li><a href="/Account/LogOff">Đăng xuất</a></li>
+                                        <li><a href="/Account/Manage">Đổi mật khẩu</a></li>
+                                        <li><a href="/Account/Edit">Cập nhật hồ sơ</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="/Order/List">Đơn hàng</a></li>
+                                        <li><a href="/Order/Products">Hàng đã mua</a></li>
+                                    }
+                                </ul>
+                   			 </li>
+                            
+                        </ul>
+                        
+
+                    </div>
+                </div><!--end navigation-->
+                <div class="container row">
+                	<div class="col-md-3 col-sm-3 col-lg-3 col-xs-12">
+                    	<div class="nn-block">
+                    	<div class="nn-megamenu-sidebar-title"><i class="glyphicon glyphicon-list"></i><h2>nhãn hiệu</h2></div>
+                        
+                        <div class="nn-megamenu-sidebar">
+                            <ul>
+                                <li>
+                                    <a href="" >
+                                        <span class="col-md-3"><img src="Contents/img/icons/icon_watch2.jpg" class="img-responsive" /></span>
+                                        <span class="col-md-9"><h5><strong>casio</strong></h5></span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="nn-megamenu-sidebar">
+                            <ul>
+                                <li>
+                                    <a href="" >
+                                        <span class="col-md-3"><img src="Contents/img/icons/icon_watch2.jpg" class="img-responsive" /></span>
+                                        <span class="col-md-9"><h5><strong>dw</strong></h5></span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="nn-megamenu-sidebar">
+                            <ul>
+                                <li>
+                                    <a href="" >
+                                        <span class="col-md-3"><img src="Contents/img/icons/icon_watch2.jpg" class="img-responsive" /></span>
+                                        <span class="col-md-9"><h5><strong>orient</strong></h5></span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                            <div class="nn-megamenu-sidebar">
+                                <ul>
+                                    <li>
+                                        <a href="">
+                                            <span class="col-md-3"><img src="Contents/img/icons/icon_watch2.jpg" class="img-responsive" /></span>
+                                            <span class="col-md-9"><h5><strong>Citizen</strong></h5></span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="nn-megamenu-sidebar">
+                                <ul>
+                                    <li>
+                                        <a href="">
+                                            <span class="col-md-3"><img src="Contents/img/icons/icon_watch2.jpg" class="img-responsive" /></span>
+                                            <span class="col-md-9"><h5><strong>tissot</strong></h5></span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                       </div><!--end block category-->
+                       <div class="nn-block">
+                       		<div class="nn-megamenu-sidebar-title"><i class="glyphicon glyphicon-tags"></i><h2>khuyến mãi</h2></div>
+                            <div class="nn-product-box">
+                            <a  href="/Product/Detail/">
+                                <img class="img-responsive" src="Contents/img/products/CITIZEN1.jpg" />
+                            </a>
+                            <div class="nn-product-box-descriptions">
+                                <h3 class="nn-product-box-name">
+                                	<a href="#" title="Đồng hồ hiệu">CITIZEN NH8390-20L – AUTOMATIC</a>
+                                </h3>
+                                <div class="nn-product-box-price ">
+                                	<span class="">VNĐ 1.390.000</span>
+                                </div>
+                                <div class="nn-product-box-actions">
+                                	<button type="button" class="btn btn-warning">
+                                    	<span class="nn-color-white">Thêm vào giỏ hàng</span>
+                                    </button> 
+                                    
+                                </div>
+                            </div>
+                        </div>
+                       </div><!--end block sale off-->
+                       
+                       <div class="nn-block">
+                       		<div class="nn-megamenu-sidebar-title"><i class="glyphicon glyphicon-tags"></i><h2>bán chạy</h2></div>
+                            <div class="nn-block-product">
+                               <ul>
+                            	<li>
+                                	<div class="nn-block-product-sidebar">
+                                        <div class="nn-block-product-sidebar-img col-md-5">
+                                             <a  href="/Product/Detail/">
+                                                <img class="img-responsive" src="Contents/img/products/CITIZEN10.jpg" />
+                                            </a>
+                                        </div>
+                                        <div class="nn-block-product-sidebar-details col-md-7">
+                                            <h3 class="nn-block-product-sidebar-name">
+                                                <a href="#" title="Đồng hồ hiệu">CITIZEN BE9173-07X – QUARTZ</a>
+                                            </h3>
+                                            <div class="nn-block-product-sidebar-price ">
+                                                <span class="">VNĐ 1.050.000</span>
+                                            </div>
+                                        </div>
+                                    </div>			
+                                </li>
+                                <li>
+                                	<div class="nn-block-product-sidebar">
+                                        <div class="nn-block-product-sidebar-img col-md-5">
+                                             <a  href="/Product/Detail/">
+                                                <img class="img-responsive" src="Contents/img/products/Aolix AL6.jpg" />
+                                            </a>
+                                        </div>
+                                        <div class="nn-block-product-sidebar-details col-md-7">
+                                            <h3 class="nn-block-product-sidebar-name">
+                                                <a href="#" title="Đồng hồ hiệu">CITIZEN BE9173-07X – QUARTZ</a>
+                                            </h3>
+                                            <div class="nn-block-product-sidebar-price ">
+                                                <span class="">VNĐ 1.920.000</span>
+                                            </div>
+                                        </div>
+                                    </div>			
+                                </li>
+                                <li>
+                                	<div class="nn-block-product-sidebar">
+                                        <div class="nn-block-product-sidebar-img col-md-5">
+                                             <a  href="/Product/Detail/">
+                                                <img class="img-responsive" src="Contents/img/products/casio10.jpg" />
+                                            </a>
+                                        </div>
+                                        <div class="nn-block-product-sidebar-details col-md-7">
+                                            <h3 class="nn-block-product-sidebar-name">
+                                                <a href="#" title="Đồng hồ hiệu">CITIZEN AR1133-23A – SAPPHIRE</a>
+                                            </h3>
+                                            <div class="nn-block-product-sidebar-price ">
+                                                <span class="">VNĐ 3.050.000</span>
+                                            </div>
+                                        </div>
+                                    </div>			
+                                </li>
+                            </ul>
+                            </div> 	
+                       </div><!--end block best seller-->
+                       <div class="nn-block">
+                       		<img class="img-responsive" src="Contents/img/banner/banner-citizen.jpg"/>
+                       </div>
+                    </div><!--end left-sidebar-->
+                    <div  class="col-md-9 col-sm-9 col-lg-9 col-xs-12">
+                    	<div class="nn-home-banner">
+                        	<img src="Contents/img/banner/doxa-banner.jpg" class="img-responsive"/>
+                        </div><!--end home banner-->
+                       
+                      	<div class="nn-block-margin-top30px">
+                            <div class="nn-cat-title">
+                                <p><i class="glyphicon glyphicon-tag"></i>
+                                <h2>Citizen</h2>
+                                </p>
+                            </div>
+                            <div>
+                            	<div class="col-md-3">
+                                    <div class="nn-product-box">
+                                        <a  href="/Product/Detail/">
+                                            <img class="img-responsive" src="Contents/img/products/CITIZEN2.jpg" />
+                                        </a>
+                                        <div class="nn-product-box-descriptions">
+                                            <h3 class="nn-product-box-name">
+                                                <a href="#" title="Đồng hồ hiệu">Citizen AR1133-23A – Kính Sapphire</a>
+                                            </h3>
+                                            <div class="nn-product-box-price ">
+                                                <span class="">VNĐ 3.698.000</span>
+                                            </div>
+                                            <div class="nn-product-box-actions">
+                                                <button type="button" class="btn btn-warning blue">
+                                                    <span>Thêm vào giỏ hàng</span>
+                                                </button> 
+                                               
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="nn-product-box">
+                                        <a  href="/Product/Detail/">
+                                            <img class="img-responsive" src="Contents/img/products/CITIZEN3.jpg" />
+                                        </a>
+                                        <div class="nn-product-box-descriptions">
+                                            <h3 class="nn-product-box-name">
+                                                <a href="#" title="Đồng hồ hiệu">Citizen NH8390-20L – Automatic</a>
+                                            </h3>
+                                            <div class="nn-product-box-price ">
+                                                <span class="">VNĐ 4.150.000</span>
+                                            </div>
+                                            <div class="nn-product-box-actions">
+                                                <button type="button" class="btn btn-warning blue">
+                                                    <span>Thêm vào giỏ hàng</span>
+                                                </button> 
+                                               
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="nn-product-box">
+                                        <a  href="/Product/Detail/">
+                                            <img class="img-responsive" src="Contents/img/products/CITIZEN5.jpg" />
+                                        </a>
+                                        <div class="nn-product-box-descriptions">
+                                            <h3 class="nn-product-box-name">
+                                                <a href="#" title="Đồng hồ hiệu">Citizen BF2003-84P– Quartz</a>
+                                            </h3>
+                                            <div class="nn-product-box-price ">
+                                                <span class="">VNĐ 2.900.000</span>
+                                            </div>
+                                            <div class="nn-product-box-actions">
+                                                <button type="button" class="btn btn-warning blue">
+                                                    <span>Thêm vào giỏ hàng</span>
+                                                </button> 
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                 <div class="col-md-3">
+                                    <div class="nn-product-box">
+                                        <a  href="/Product/Detail/">
+                                            <img class="img-responsive" src="Contents/img/products/CITIZEN7.jpg" />
+                                        </a>
+                                        <div class="nn-product-box-descriptions">
+                                            <h3 class="nn-product-box-name">
+                                                <a href="#" title="Đồng hồ hiệu">Citizen BE9173-07X – Quartz</a>
+                                            </h3>
+                                            <div class="nn-product-box-price ">
+                                                <span class="">VNĐ 3.500.000</span>
+                                            </div>
+                                            <div class="nn-product-box-actions">
+                                                <button type="button" class="btn btn-warning blue">
+                                                    <span>Thêm vào giỏ hàng</span>
+                                                </button> 
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                       
+                       <div class="nn-block-margin-top30px">
+                            <div class="nn-cat-title">
+                                <p><i class="glyphicon glyphicon-tag"></i>
+                                <h2>Casio</h2>
+                                </p>
+                            </div>
+                            <div>
+                            	<div class="col-md-3">
+                                    <div class="nn-product-box">
+                                        <a  href="/Product/Detail/">
+                                            <img class="img-responsive" src="Contents/img/products/casio1.jpg" />
+                                        </a>
+                                        <div class="nn-product-box-descriptions">
+                                            <h3 class="nn-product-box-name">
+                                                <a href="#" title="Đồng hồ hiệu">Casio MTP-VT01L-2BUDF – Quartz</a>
+                                            </h3>
+                                            <div class="nn-product-box-price ">
+                                                <span class="">VNĐ 5.500.000</span>
+                                            </div>
+                                            <div class="nn-product-box-actions">
+                                                <button type="button" class="btn btn-warning blue">
+                                                    <span>Thêm vào giỏ hàng</span>
+                                                </button> 
+                                               
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="nn-product-box">
+                                        <a  href="/Product/Detail/">
+                                            <img class="img-responsive" src="Contents/img/products/casio2.jpg" />
+                                        </a>
+                                        <div class="nn-product-box-descriptions">
+                                            <h3 class="nn-product-box-name">
+                                                <a href="#" title="Đồng hồ hiệu">Casio MTP-1302D-7A2VDF – Quartz</a>
+                                            </h3>
+                                            <div class="nn-product-box-price ">
+                                                <span class="">VNĐ 5.120.000</span>
+                                            </div>
+                                            <div class="nn-product-box-actions">
+                                                <button type="button" class="btn btn-warning blue">
+                                                    <span>Thêm vào giỏ hàng</span>
+                                                </button> 
+                                               
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="nn-product-box">
+                                        <a  href="/Product/Detail/">
+                                            <img class="img-responsive" src="Contents/img/products/casio3.jpg" />
+                                        </a>
+                                        <div class="nn-product-box-descriptions">
+                                            <h3 class="nn-product-box-name">
+                                                <a href="#" title="Đồng hồ hiệu">Casio MTP-V006L-1B3UDF –Quartz</a>
+                                            </h3>
+                                            <div class="nn-product-box-price ">
+                                                <span class="">VNĐ 6.215.000</span>
+                                            </div>
+                                            <div class="nn-product-box-actions">
+                                                <button type="button" class="btn btn-warning blue">
+                                                    <span>Thêm vào giỏ hàng</span>
+                                                </button> 
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                 <div class="col-md-3">
+                                    <div class="nn-product-box">
+                                        <a  href="/Product/Detail/">
+                                            <img class="img-responsive" src="Contents/img/products/casio8.jpg" />
+                                        </a>
+                                        <div class="nn-product-box-descriptions">
+                                            <h3 class="nn-product-box-name">
+                                                <a href="#" title="Đồng hồ hiệu">Casio EFV-C100D-1AVDF –Quartz</a>
+                                            </h3>
+                                            <div class="nn-product-box-price ">
+                                                <span class="">VNĐ 7.250.000</span>
+                                            </div>
+                                            <div class="nn-product-box-actions">
+                                                <button type="button" class="btn btn-warning blue">
+                                                    <span>Thêm vào giỏ hàng</span>
+                                                </button> 
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               <div class="ma-footer-static">
+	<div class="container">
+		<div class="footer-static">
+			<div class="row">
+				<div class="f-col f-col-3 col-sm-6 col-md-4 col-sms-6 col-smb-12">
+<div class="img-logo"><a href="#"><img src="http://www.plazathemes.com/demo/ma_enzo/media/wysiwyg/logo.jpg" alt=""></a></div>
+<div class="footer-static-content ">
+<h3>Đây là trang web của hãng watchshop online!</h3>
+<p>Rất hân hạnh được phục vụ quý ông, quý bà.</p>
+<p>Địa chỉ: 135 Thanh Đa, Bình Quới, Phường 27, Q. Bình Thạnh, Tp.HCM</p>
+</div>
+</div>
+<div class="f-col f-col-4 col-sm-6 col-md-2 col-sms-6 col-smb-12">
+<div class="footer-static-title">
+<h3>THẮC MẮC</h3>
+</div>
+<div class="footer-static-content">
+<ul>
+<li class="first"><a href="#">Liên hệ</a></li>
+<li><a href="#">Lịch sử mua hàng</a></li>
+<li><a href="#">Quay lại</a></li>
+<li><a href="#">Dịch vụ khách hàng</a></li>
+<li class="last"><a href="#">Điều kiện và Điều khoản &amp; Condition</a></li>
+</ul>
+</div>
+</div>
+<div class="f-col f-col-5 col-sm-6 col-md-2 col-sms-6 col-smb-12">
+<div class="footer-static-title">
+<h3>DV HỔ TRỢ</h3>
+</div>
+<div class="footer-static-content ">
+<ul>
+<li class="first"><a href="#">Bản đồ</a></li>
+<li><a href="#">Chính sách bảo mật</a></li>
+<li><a href="#">Tài khoản</a></li>
+<li><a href="#">Tìm kiếm nâng cao</a></li>
+<li class="last"><a href="#">Giới thiệu</a></li>
+</ul>
+</div>
+</div>
+<div class="f-col f-col-6 col-sm-6 col-md-2 col-sms-6 col-smb-12">
+<div class="footer-static-title">
+<h3>TÀI KHOẢN</h3>
+</div>
+<div class="footer-static-content">
+<ul>
+<li class="first"><a href="#">Tài khoản của bạn</a></li>
+<li><a href="#">Lịch sử mua hàng</a></li>
+<li><a href="#">Quay lại</a></li>
+<li><a href="#">Đặc biệt</a></li>
+<li class="last"><a href="#">Bản đồ</a></li>
+</ul>
+</div>
+</div>
+<div class="f-col f-col-7 col-sm-6 col-md-2 col-sms-6 col-smb-12">
+<div class="footer-static-title">
+<h3>LIÊN HỆ</h3>
+</div>
+<div class="footer-static-content">
+<ul>
+<li class="first"><a href="#">Liên hệ</a></li>
+<li><a href="#">Thông tin giao hàng</a></li>
+<li><a href="#">Chính sách bảo mật</a></li>
+<li><a href="#">Dịch vụ khách hàng</a></li>
+<li class="last"><a href="#">Điều kiện &amp; Điều khoản</a></li>
+</ul>
+</div>
+</div>			</div>
+		</div>	
+	</div>	
+</div>
+</div>
+
+</body>
+</html>
